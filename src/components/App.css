@@ -1,0 +1,15 @@
+.app {
+  text-align: center;
+}
+
+.users {
+  display: flex;
+  justify-content: center;
+}
+
+.user {
+  padding: 2rem;
+  margin: 3rem;
+  border: 1px solid goldenrod;
+}
+
