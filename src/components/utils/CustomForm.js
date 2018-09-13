@@ -31,8 +31,10 @@ class CustomForm extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     const { data } = this.state;
+    // Extra prop mutationFunc required when form is in a Mutation Component
+    const { mutationFunc } = this.props;
     this.setState({ ...initialState });
-    this.props.onSubmitAction(data);
+    this.props.onSubmitAction(data, mutationFunc);
   }
 
   onChange = (event) => {
