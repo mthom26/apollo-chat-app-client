@@ -57,7 +57,6 @@ class SignUp extends React.Component {
             )
           }}
         </Mutation>
-        
       </div>
     );
   }
