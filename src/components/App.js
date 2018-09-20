@@ -11,6 +11,7 @@ import {
 import './App.css';
 import SignIn from './signIn/SignIn';
 import SignUp from './signUp/SignUp';
+import Profile from './profile/Profile';
 
 const GET_USERS = gql`
   {
@@ -54,6 +55,7 @@ const App = () => {
           <Route exact path="/" component={Users} />
           <Route path="/signup" component={SignUp} />
           <Route path="/signin" component={SignIn} />
+          <Route path="/profile" render={() => <Profile />} />
           <Redirect to="/" />
         </Switch>
       </Router>
