@@ -29,6 +29,8 @@ class SignIn extends React.Component {
       // Get Token from server
       const data = await signIn();
       console.log(data);
+      // TODO check for token before calling ,setItem()
+      localStorage.setItem('Token', data.data.signIn.token);
     })
   }
 
