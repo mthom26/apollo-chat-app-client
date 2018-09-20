@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
+import { withRouter } from 'react-router-dom';
 
 import CustomForm from '../utils/CustomForm';
 
@@ -32,6 +33,9 @@ class SignUp extends React.Component {
       console.log(data);
       // TODO check for token before calling ,setItem()
       localStorage.setItem('Token', data.data.signUp.token);
+      // Fetch currentUser before redirecting
+      await this.props.refetch();
+      this.props.history.push('/');
     })
   }
 
@@ -64,4 +68,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

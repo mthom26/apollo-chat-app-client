@@ -1,16 +1,12 @@
 import React, { Fragment } from 'react';
 
-import withSession from '../withSession';
-
-const Profile = ({ currentUser, refetch }) => {
+const Profile = ({ currentUser }) => {
   console.log(currentUser);
   return (
     <Fragment>
-    <h1>Profile page</h1>
-    <h2>{currentUser.username}</h2>
-    <p>{currentUser.email}</p>
+      <h1>Profile page</h1>
     </Fragment>
   )
 };
 
-export default withSession(Profile);
+export default Profile;

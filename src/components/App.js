@@ -12,6 +12,7 @@ import './App.css';
 import SignIn from './signIn/SignIn';
 import SignUp from './signUp/SignUp';
 import Profile from './profile/Profile';
+import withSession from './withSession';
 
 const GET_USERS = gql`
   {
@@ -46,15 +47,16 @@ const Users = () => (
   </Query>
 );
 
-const App = () => {
+const App = ({ currentUser, refetch }) => {
+  console.log(currentUser);
   return (
     <div className="app">
       <h1>Chat App</h1>
       <Router>
         <Switch>
           <Route exact path="/" component={Users} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" render={() => <SignUp refetch={refetch} />} />
+          <Route path="/signin" render={() => <SignIn refetch={refetch} />} />
           <Route path="/profile" render={() => <Profile />} />
           <Redirect to="/" />
         </Switch>
@@ -64,4 +66,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withSession(App);
