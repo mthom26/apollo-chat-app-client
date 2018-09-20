@@ -1,5 +1,4 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import {
   BrowserRouter as Router,
@@ -13,19 +12,7 @@ import SignIn from './signIn/SignIn';
 import SignUp from './signUp/SignUp';
 import Profile from './profile/Profile';
 import withSession from './withSession';
-
-const GET_USERS = gql`
-  {
-    users {
-      id
-      username
-      email
-      messages {
-        content
-      }
-    }
-  }
-`;
+import { GET_USERS } from '../queries';
 
 const Users = () => (
   <Query query={GET_USERS}>

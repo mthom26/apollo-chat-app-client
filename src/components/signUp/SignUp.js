@@ -1,17 +1,9 @@
 import React, { Fragment } from 'react';
-import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 
 import CustomForm from '../utils/CustomForm';
-
-const SIGN_UP = gql`
-  mutation($username: String!, $email: String!, $password: String!) { 
-    signUp(username: $username, email: $email, password: $password) {
-      token
-    }
-  }
-`;
+import { SIGN_UP } from '../../queries';
 
 class SignUp extends React.Component {
   constructor(props) {
