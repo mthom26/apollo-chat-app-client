@@ -11,6 +11,7 @@ import './App.css';
 import SignIn from './signIn/SignIn';
 import SignUp from './signUp/SignUp';
 import Profile from './profile/Profile';
+import Nav from './nav/Nav';
 import withSession from './withSession';
 import { GET_USERS } from '../queries';
 
@@ -37,19 +38,20 @@ const Users = () => (
 const App = ({ currentUser, refetch }) => {
   console.log(currentUser);
   return (
-    <div className="app">
-      <h1>Chat App</h1>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Users} />
-          <Route path="/signup" render={() => <SignUp refetch={refetch} />} />
-          <Route path="/signin" render={() => <SignIn refetch={refetch} />} />
-          <Route path="/profile" render={() => <Profile />} />
-          <Redirect to="/" />
-        </Switch>
-      </Router>
-      
-    </div>
+    <Router>
+      <div className="app">
+        <Nav />
+        <div className="main">
+          <Switch>
+            <Route exact path="/" component={Users} />
+            <Route path="/signup" render={() => <SignUp refetch={refetch} />} />
+            <Route path="/signin" render={() => <SignIn refetch={refetch} />} />
+            <Route path="/profile" render={() => <Profile />} />
+            <Redirect to="/" />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 };
 
