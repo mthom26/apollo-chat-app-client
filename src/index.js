@@ -11,6 +11,17 @@ const client = new ApolloClient({
   fetchOptions: {
     credentials: 'include'
   },
+  clientState: {
+    defaults: {
+      userInfo: {
+        __typename: 'UserInfo',
+        id: 'testID',
+        username: 'Test Username',
+        email: 'test@mail.com',
+        messages: []
+      }
+    },
+  },
   request: (operation) => {
     const token = localStorage.getItem('Token');
     console.log(token);

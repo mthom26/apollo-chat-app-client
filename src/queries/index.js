@@ -29,8 +29,19 @@ const SIGN_UP = gql`
   }
 `;
 
+const GET_USER_INFO = gql`
+  {
+    userInfo @client {
+      username
+      email
+      id
+    }
+  }
+`;
+
 export {
   GET_USERS,
   SIGN_IN,
-  SIGN_UP
+  SIGN_UP,
+  GET_USER_INFO
 };
