@@ -13,6 +13,7 @@ import SignIn from './signIn/SignIn';
 import SignUp from './signUp/SignUp';
 import Profile from './profile/Profile';
 import Nav from './nav/Nav';
+import Chat from './chat/Chat';
 import withSession from './withSession';
 import { GET_USERS } from '../queries';
 
@@ -44,7 +45,7 @@ const App = ({ currentUser, refetch }) => {
         <Nav />
         <div className="main">
           <Switch>
-            <Route exact path="/" component={Users} />
+            <Route exact path="/" component={Chat} />
             <Route path="/signup" render={() => <SignUp refetch={refetch} />} />
             <Route path="/signin" render={() => <SignIn refetch={refetch} />} />
             <Route path="/profile" render={() => <Profile />} />
