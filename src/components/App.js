@@ -17,25 +17,25 @@ import Chat from './chat/Chat';
 import withSession from './withSession';
 import { GET_USERS } from '../queries';
 
-const Users = () => (
-  <Query query={GET_USERS}>
-    {({ loading, error, data }) => {
-      if(loading) return <p>Loading...</p>
-      if(error) return <p>Error {`${error.message}`}</p>
+// const Users = () => (
+//   <Query query={GET_USERS}>
+//     {({ loading, error, data }) => {
+//       if(loading) return <p>Loading...</p>
+//       if(error) return <p>Error {`${error.message}`}</p>
 
-      return (
-        <div className="users">
-          {data.users.map(user => (
-            <div key={user.id} className="user">
-              <h3>{user.username}</h3>
-              <p>{user.email}</p>
-            </div>
-          ))}
-        </div>
-      )
-    }}
-  </Query>
-);
+//       return (
+//         <div className="users">
+//           {data.users.map(user => (
+//             <div key={user.id} className="user">
+//               <h3>{user.username}</h3>
+//               <p>{user.email}</p>
+//             </div>
+//           ))}
+//         </div>
+//       )
+//     }}
+//   </Query>
+// );
 
 const App = ({ currentUser, refetch }) => {
   console.log(currentUser);
