@@ -6,6 +6,7 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
+import styled, { injectGlobal } from 'styled-components';
 
 import './App.css';
 import SignIn from './signIn/SignIn';
@@ -39,7 +40,7 @@ const App = ({ currentUser, refetch }) => {
   console.log(currentUser);
   return (
     <Router>
-      <div className="app">
+      <AppContainer>
         <Nav />
         <div className="main">
           <Switch>
@@ -50,9 +51,29 @@ const App = ({ currentUser, refetch }) => {
             <Redirect to="/" />
           </Switch>
         </div>
-      </div>
+      </AppContainer>
     </Router>
   );
 };
 
 export default withSession(App);
+
+/*---------*/
+/* Styling */
+/*---------*/
+injectGlobal`
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+`;
+
+const AppContainer = styled.div`
+  text-align: center;
+  display: flex;
+  width: 100%;
+`;
